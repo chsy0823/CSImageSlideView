@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CSImageSlideView.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController {
+    NSMutableArray *tempArray;
+}
 
+@property (nonatomic,weak) IBOutlet CSImageSlideView *imageSlideView1;
+@property (nonatomic,weak) IBOutlet CSImageSlideView *imageSlideView2;
 
 @end
 
