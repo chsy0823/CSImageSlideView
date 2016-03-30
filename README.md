@@ -1,6 +1,8 @@
 # CSImageSlideView
 iOS image slide view
 
+![screenshot](ScreenShot/screenshot.jpeg)
+
 #Requirements
 iOS 7.0+
 
