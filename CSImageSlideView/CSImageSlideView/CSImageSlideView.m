@@ -14,8 +14,8 @@
 @implementation CSImageSlideView
 
 - (id)initWithFrame:(CGRect)frame {
-
-self = [super initWithFrame:frame];
+    NSLog(@"init with frame");
+    self = [super initWithFrame:frame];
     if (self != nil) {
         [self setInitial];
     }
@@ -27,9 +27,12 @@ self = [super initWithFrame:frame];
     
     currentIndex = 0;
     imageItemArray = [NSMutableArray array];
+    CGRect frame = self.frame;
+    frame.origin.x = 0;
+    frame.origin.y = 0;
     
     self.contentsView = [[[self class] CSImageSlideContentsViewClass] view];
-    [self.contentsView setFrame:self.frame];
+    [self.contentsView setFrame:frame];
     
     for(UIButton *button in self.contentsView.clickBtns) {
         [button addTarget:self action:@selector(clickMove:) forControlEvents:UIControlEventTouchUpInside];
@@ -40,7 +43,7 @@ self = [super initWithFrame:frame];
     
     [self addSubview:self.contentsView];
     
-    UIImage *updatePhoto = [UIImage imageNamed:@"petimage_add"];
+    UIImage *updatePhoto = [UIImage imageNamed:@"uploadImg"];
     NSNumber *type = [NSNumber numberWithInt:TYPEBUTTON];
     
     defaultItem = [NSMutableDictionary dictionary];
@@ -67,7 +70,7 @@ self = [super initWithFrame:frame];
 - (void)setItemImages {
     
     NSInteger count = [imageItemArray count];
-    NSInteger prefix = 3*currentIndex;
+    NSInteger prefix = IMAGECOUNT*currentIndex;
     
     for(UIImageView *imageView in self.contentsView.imageViewCollection) {
         

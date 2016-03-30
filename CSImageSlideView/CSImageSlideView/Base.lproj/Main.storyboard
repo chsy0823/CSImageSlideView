@@ -22,28 +22,37 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="110"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kYA-KG-LM4" customClass="CSImageSlideView">
-                                <rect key="frame" x="0.0" y="168" width="320" height="110"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UbD-eF-1su" customClass="CSImageSlideView">
+                                <rect key="frame" x="0.0" y="146" width="320" height="110"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="kPI-SP-Hrg" secondAttribute="trailing" id="EfA-sd-eDZ"/>
+                            <constraint firstItem="kPI-SP-Hrg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Fd9-oh-BUC"/>
                             <constraint firstItem="kPI-SP-Hrg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="GfK-WX-2fL"/>
-                            <constraint firstAttribute="trailing" secondItem="kYA-KG-LM4" secondAttribute="trailing" id="JZB-u7-i6V"/>
-                            <constraint firstItem="kYA-KG-LM4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="VJr-Fc-4ik"/>
-                            <constraint firstItem="kYA-KG-LM4" firstAttribute="top" secondItem="kPI-SP-Hrg" secondAttribute="bottom" constant="30" id="eki-qL-vBy"/>
-                            <constraint firstItem="kYA-KG-LM4" firstAttribute="height" secondItem="kPI-SP-Hrg" secondAttribute="height" id="fDQ-Mn-N0n"/>
+                            <constraint firstItem="UbD-eF-1su" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UuQ-kz-m8M"/>
+                            <constraint firstItem="kPI-SP-Hrg" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="d0h-bm-PVN"/>
+                            <constraint firstItem="UbD-eF-1su" firstAttribute="top" secondItem="kPI-SP-Hrg" secondAttribute="bottom" constant="8" id="fGl-wt-NVe"/>
                             <constraint firstItem="kPI-SP-Hrg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="o0X-Pr-Zba"/>
+                            <constraint firstItem="UbD-eF-1su" firstAttribute="height" secondItem="kPI-SP-Hrg" secondAttribute="height" id="rFn-Ve-50E"/>
                             <constraint firstItem="kPI-SP-Hrg" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.192" id="tTc-lc-vVz"/>
+                            <constraint firstItem="kPI-SP-Hrg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="vX0-fa-JYc"/>
+                            <constraint firstAttribute="trailing" secondItem="UbD-eF-1su" secondAttribute="trailing" id="wOa-fO-W5q"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Fd9-oh-BUC"/>
+                                <exclude reference="o0X-Pr-Zba"/>
+                            </mask>
+                        </variation>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outlet property="imageSlideView1" destination="kPI-SP-Hrg" id="Jot-aO-5mq"/>
-                        <outlet property="imageSlideView2" destination="kYA-KG-LM4" id="DoY-K9-Gin"/>
+                        <outlet property="imageSlideView2" destination="UbD-eF-1su" id="UOl-LH-ZtY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
