@@ -66,7 +66,8 @@
 #pragma mark -CSImageSlideView Delegate
 
 - (void)imageSlideView:(CSImageSlideView*)imageSlideView didSelectPhoto:(NSDictionary*)itemDict {
-
+    
+    NSLog(@"image clicked");
     UIImage *image = (UIImage*)[itemDict objectForKey:@"imageItem"];
     NSNumber *type = (NSNumber*)[itemDict objectForKey:@"itemType"];
     
