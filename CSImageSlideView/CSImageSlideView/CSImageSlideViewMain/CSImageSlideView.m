@@ -60,8 +60,9 @@
 
 - (void)setItemArray:(NSMutableArray*)array {
     
-    imageItemArray = array;
+    imageItemArray = [array mutableCopy];
     currentIndex = 0;
+    
     [imageItemArray addObject:defaultItem];
     
     [self setItemImages];
@@ -79,8 +80,28 @@
         if(prefix < count) {
             
             NSDictionary *dict = (NSDictionary*)[imageItemArray objectAtIndex:prefix];
-            UIImage *image = (UIImage*)[dict objectForKey:@"imageItem"];
-            [imageView setImage:image];
+            UIImage *image;
+            
+            //set static image
+            if([dict objectForKey:@"imageItem"]) {
+                
+                image = (UIImage*)[dict objectForKey:@"imageItem"];
+                [imageView setImage:image];
+            }
+            else {
+                
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                    
+                    //set profile
+                    NSURL *url = [NSURL URLWithString:[dict objectForKey:@"imageUrl"]];
+                    NSData *data = [NSData dataWithContentsOfURL:url];
+                    
+                    dispatch_async(dispatch_get_main_queue(), ^ {
+                        [imageView setImage:[[UIImage alloc]initWithData:data]];
+                    });
+                });
+            }
+            
             prefix++;
         }
     }
@@ -88,6 +109,11 @@
 
 - (void)performTransition:(NSInteger)position
 {
+    currentIndex++;
+    
+    if([imageItemArray count] <= IMAGECOUNT*currentIndex){
+        currentIndex=0;
+    }
     
     [self setItemImages];
     CATransition *transition = [CATransition animation];
@@ -101,11 +127,6 @@
     
     [self.contentsView.contentsView.layer addAnimation:transition forKey:nil];
     
-    currentIndex++;
-    
-    if([imageItemArray count] <= IMAGECOUNT*currentIndex){
-        currentIndex=0;
-    }
 }
 - (void)clickImage:(UIButton*)button {
     
